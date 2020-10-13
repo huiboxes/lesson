@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="btn1">
+    <button>btn2</button>
+    <button>btn3</button>
+    
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('input[type=button]').click(()=>{
+            alert(1)
+        })
+
+        $('button').on('click',()=>{
+            alert(2)
+        })
+        
+        document.querySelectorAll('button')[1].onclick = ()=>{
+            alert(3)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dashboard {
+        width: 500px;
+        height: 300px;
+        border: 1px solid #bc8c18;
+        border-radius: 5px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .dashboard > * {
+        margin: 0 0.3rem;
+      }
+      .deActive {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="dashboard">
+        当前进度：<span id="count">0</span>%
+        <progress max="100" value="0" min="0" id="progress"></progress>
+        <button class="startBtn">开始</button>
+        <button class="endBtn">暂停</button>
+      </div>
+    </main>
+  </body>
+</html>

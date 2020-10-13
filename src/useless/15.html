@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            width: 30rem;
+            height: 20rem;
+            border: 1px solid red;
+            position: relative;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="hideBtn">开始</button>
+    <div id="box"></div>
+    
+
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // $(()=>{}) == $(document).ready(function(){})
+        
+        $('#hideBtn').click(()=>{
+            $('#box').animate({
+                'left': '+=250px',
+
+            },
+            3000,
+            ()=>{
+                console.log("handle");
+            }).delay(2000)
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dashboard {
+        width: 500px;
+        height: 300px;
+        border: 1px solid #bc8c18;
+        border-radius: 5px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .dashboard > * {
+        margin: 0 0.3rem;
+      }
+      .deActive {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="dashboard">
+        当前进度：<span id="count">0</span>%
+        <progress max="100" value="0" min="0" id="progress"></progress>
+        <button class="startBtn">开始</button>
+        <button class="endBtn">暂停</button>
+      </div>
+    </main>
+
+    <script>
+      !function () {
+        let view = document.querySelector('.dashboard')
+
+        let model = {
+          state: 0,
+          timer: null,
+        }
+  
+        let controller = {
+          init: function (view, model) {
+            this.view = view
+            this.model = model
+            this.startBtn = view.querySelector('.startBtn')
+            this.endBtn = view.querySelector('.endBtn')
+            this.count = view.querySelector('#count')
+            this.progress = view.querySelector('#progress')
+            this.bindEvents()
+          },
+          bindEvents: function () {
+              this.startBtn.addEventListener('click',()=>{
+                  this.startRoll()
+              })
+              this.endBtn.addEventListener('click',()=>{
+                  this.stopRoll()
+              })
+          },
+          startRoll: function () {
+            if (model.state === 100) {
+              alert('恭喜，进度已完成')
+              return
+            }
+            clearInterval(model.timer)
+            model.timer = setInterval(() => {
+              model.state += 1
+              // console.log(model.state)
+              this.count.innerText = model.state
+              this.progress.value = model.state
+              if (model.state == 100) {
+                clearInterval(model.timer)
+              }
+              if (model.state > 0) {
+                this.startBtn.classList.add('deActive')
+                this.startBtn.innerText = '继续'
+              }
+            }, 200)
+          },
+          stopRoll: function () {
+            this.startBtn.classList.remove('deActive')
+            clearInterval(model.timer)
+          },
+        }
+
+        controller.init(view, model)
+      }()
+    </script>
+  </body>
+</html>

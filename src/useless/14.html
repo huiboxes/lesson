@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=v, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.min.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            width: 30rem;
+            height: 20rem;
+            border: 1px solid red;
+            transition: all 1s;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <button id="hidenBtn">隐藏</button>
+    <button id="showBtn">显示</button>
+    <div id="box">
+
+
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script>
+        $(()=>{
+            $('#hidenBtn').click(()=>{
+                $('#box').hide('slow')
+            })
+            $('#showBtn').click(()=>{
+                $('#box').show(1000)
+            })
+        })
+
+    </script>
+</body>
+</html>
