@@ -45,15 +45,16 @@
   <body>
     <div class="window">
       <div class="images">
-        <img src="./public/images/1.jpg" alt="图片" width="533" height="300" />
-        <img src="./public/images/2.jpg" alt="图片" width="533" height="300" />
-        <img src="./public/images/3.jpg" alt="图片" width="533" height="300" />
+        <img src="../../public/images/1.jpg" alt="图片" width="533" height="300" />
+        <img src="../../public/images/2.jpg" alt="图片" width="533" height="300" />
+        <img src="../../public/images/3.jpg" alt="图片" width="533" height="300" />
       </div>
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script>
       let n
+      
       init()
       setInterval(() => {
         makeLeave(getImage(n)).one('transitionend', (e) => {
@@ -62,6 +63,7 @@
         makeCurrent(getImage(n + 1))
         n += 1
       }, 3000)
+
 
       function getImage(n) {
         return $(`.images > img:nth-child(${x(n)})`)
