@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dateFunc测试</title>
+</head>
+<body>
+    <h3>1、获取不同时区的时间（第一个参数是时区缩写，第二个参数是显示格式。）</h3>
+    <form action="./dateFunc.php">
+
+        <input type="text" required name="zone" placeholder="请输入时区以获得时间" maxlength="5" />
+        <input type="text" name="format" placeholder="希望的时间格式，选填" maxlength="10">
+        <button>查询</button>
+    </form>
+
+    <h3>2、统计字符串个数并且格式化</h3>
+    <form action="./format.php">
+        <input type="text" required name="str" placeholder="请输入需要格式化的字符串">
+        <button>格式化</button>
+    </form>
+
+    <h3>3、随机10个三位数并计算</h3>
+    <button onclick="window.location.href='./randomUtil.php'">开始</button>
+
+
+</body>
+</html>
