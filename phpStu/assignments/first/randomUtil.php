@@ -11,4 +11,3 @@ foreach ($numArr as $key => $item){
     echo "它的3/5次方是" . pow($item,0.6) . "<br />";
     echo "<br />";
 }
-
