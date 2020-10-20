@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
   <style>
-    .wrapper,.item{
-      box-sizing: border-box;
+    .wrapper,.item,.wrapper2,.item2{
       border: 1px solid red;
+      box-sizing: border-box;
     }
     .wrapper{
       width: 1000px;
@@ -16,19 +17,27 @@
       flex-wrap: wrap;
       justify-content: space-around;
     }
-
     .item{
       flex-basis: 300px;
       height: 300px;
-
       display: flex;
       justify-content: center;
       align-items: center;
     }
-  </style>
+
+    .wrapper2{
+      width: 1000px;
+      overflow: hidden;
+    }
+    .item2{
+      width: 300px;
+      height: 300px;
+      float: left;
+      margin: 5px;
+    }
+    </style>
 </head>
 <body>
-  
   <div class="wrapper">
     <div class="item">1</div>
     <div class="item">2</div>
@@ -40,9 +49,17 @@
     <div class="item">8</div>
     <div class="item">9</div>
   </div>
-  
 
-
-  
+  <div class="wrapper2" style="margin-top: 100px;">
+    <div class="item2">1</div>
+    <div class="item2">2</div>
+    <div class="item2">3</div>
+    <div class="item2">4</div>
+    <div class="item2">5</div>
+    <div class="item2">6</div>
+    <div class="item2">7</div>
+    <div class="item2">8</div>
+    <div class="item2">9</div>
+  </div>
 </body>
 </html>
