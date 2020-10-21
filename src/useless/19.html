@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drap</title>
+
+  <style>
+    *{box-sizing: border-box;}
+    #container{
+      width: 400px;
+      height: 100px;
+      border: 1px solid red;
+    }
+    #element{
+      width: 400px;
+      height: 100px;
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+  <div id="container" ondrop="drop(event)" ondragover="dragover(event)"></div>
+  <div id="container" ondrop="drop(event)" ondragover="dragover(event)"></div>
+  <div id="element" ondragstart="dragstart(event)" draggable="true"></div>
+
+  <script>
+
+    const drop = (e)=>{
+      e.preventDefault();
+      let data = e.dataTransfer.getData('Text')
+      e.target.appendChild(document.getElementById(data))
+    }
+    
+    const dragover = (e)=>{
+      e.preventDefault()
+    }
+    const dragstart = (e)=>{
+      e.dataTransfer.setData('Text',e.target.id)
+    }
+  </script>
+</body>
+</html>

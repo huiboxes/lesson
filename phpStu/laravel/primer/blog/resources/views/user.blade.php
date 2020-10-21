@@ -4,3 +4,7 @@
 @section('content')
     Users!
 @stop
+<?php
+
+
+
