@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrapper,
+    .item {
+      border: 1px solid red;
+      box-sizing: border-box;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: 902px;
+      margin: auto;
+    }
+
+    .item {
+      height: 300px;
+      flex-basis: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+  </div>
+
+  <script>
+    !function(){
+      let dragDiv = null
+      const dragstart =  (e)=>{
+        dragDiv = e.target
+      }
+
+      const drop = (e)=>{
+        [e.target.innerText,dragDiv.innerText] = [dragDiv.innerText,e.target.innerText]
+      }
+
+      const dragover = (e)=>{
+        e.preventDefault()
+      }
+
+      let divs = document.querySelectorAll('.item')
+
+      divs.forEach(item=>{
+        item.draggable = true
+        item.ondragstart = dragstart
+        item.ondrop = drop
+        item.ondragover = dragover
+      })
+    }()
+
+
+
+  </script>
+</body>
+</html>
