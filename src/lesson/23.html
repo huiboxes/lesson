@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #canvas{
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <button id="line">直线</button>
+  <button id="circle">圆</button>
+  <button id="rect">矩形</button>
+  <button id="clear">清除</button>
+  <button id="save">保存</button>
+
+  <script>
+    let c = document.querySelector('#canvas')
+    let ctx = c.getContext('2d')
+
+    line.onclick = function(){
+      ctx.beginPath()
+      ctx.moveTo(10,20)
+      ctx.lineTo(100,20)
+      ctx.stroke()
+    }
+
+    circle.onclick = function(){
+      ctx.beginPath()
+      ctx.arc(50,150,40,0,2*Math.PI)
+      ctx.fill()
+    }
+
+    rect.onclick = function(){
+      ctx.fillRect(10,300,100,50)
+    }
+    
+    clear.onclick = function(){
+      ctx.clearRect(0,0,c.width,c.height)
+    }
+
+    save.onclick = function(){
+      let a = document.createElement('a')
+      a.href = c.toDataURL('image/png')
+      a.download = `${new Date().getTime()} 图片`
+      a.click()
+    }
+  </script>
+
+</body>
+</html>

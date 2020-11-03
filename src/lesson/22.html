@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myCanvas {
+        border: 1px solid red;
+      }
+    </style>
+  </head>+
+  <body>
+    <canvas id="myCanvas" width="500" height="600">
+      您的浏览器不支持 HTML5 canvas 标签。
+    </canvas>
+    <button id="line">直线</button>
+    <button id="rect">绘制一个矩形</button>
+    <button id="ring">绘制一个圆形</button>
+    <button id="clear">清除</button>
+    <button id="save">保存图片</button>
+
+    <!-- <img src="./assets/images/1.jpg" alt=""> -->
+
+
+    <script>
+      let c = document.getElementById('myCanvas')
+      let ctx = c.getContext('2d')
+      let lineWidth = 5
+      let baseColor = '#42B983'
+
+      line.onclick = function(){
+        ctx.beginPath()
+        ctx.moveTo(0,20)
+        ctx.lineTo(100,20)
+        ctx.stroke()
+      }
+
+      rect.onclick = function(){
+        ctx.fillStyle = baseColor
+        ctx.fillRect(10,150,100,50)
+      }
+
+      ring.onclick = function(){
+        ctx.beginPath()
+        ctx.arc(50,300,40,0,2*Math.PI)
+        ctx.stroke()  
+      }
+
+      clear.onclick = function(){
+        ctx.clearRect(0,0,myCanvas.width,myCanvas.height)
+      }
+
+      save.onclick = function(){
+        let url = c.toDataURL('image/png')
+        let a = document.createElement('a')
+        a.href = url
+        a.download = `${new Date().getTime()}图片`
+        a.click()
+      }
+    </script>
+  </body>
+</html>
