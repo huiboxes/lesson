@@ -18,6 +18,7 @@
   
   <input type="text" id="queryID" placeholder="输入账号获取信息">
   <button id="read">读</button><br/><br/>
+
   <table border id="infoSheet">
     <tr>
       <th>id</th>
@@ -27,11 +28,10 @@
       <th>备注</th>
     </tr>
   </table>
-  
+
   <script>
     let $ = document.querySelector.bind(document)
     let $$ = document.querySelectorAll.bind(document)
-    
 
     $('#wirte').onclick = ()=>{
       let [ name,mobile,email,remark ] = Array.prototype.map.call($$('input[type=text]'),item=>item.value)

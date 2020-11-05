@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+      }
+      img.images {
+        position: relative;
+        display: inline-block;
+      }
+      /* .layer {
+        width: 400px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 400px;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        animation: up 0.3s;
+        animation-direction: alternate-reverse;
+        animation-direction: reverse;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+      } */
+      .layer {
+        display: none;
+        width: 400px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 400px;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+      }
+      .layer.active{
+        display: block;
+        
+      }
+      .setting,
+      .remove {
+        height: 20%;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        border-radius: 4px;
+        margin: 10px;
+        opacity: 0.9;
+      }
+      .setting {
+        background-color: #0084ff;
+      }
+      .remove {
+        background-color: #f41;
+      }
+
+      @keyframes up {
+        from {
+          top: 200px;
+        }
+        to {
+          top: 400px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <img
+        src="./assets/images/1.jpg"
+        width="400"
+        height="300"
+        class="images"
+      />
+      <div class="layer">
+        <button class="setting">设置</button>
+        <button class="remove">删除</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <img
+        src="./assets/images/3.jpg"
+        width="400"
+        height="300"
+        class="images"
+      />
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+
+    <script>
+      let imgs = document.querySelectorAll('.wrapper')
+
+      imgs.forEach((e) => {
+        // let div = `<div class="layer">
+        //   <button class="setting">设置</button>
+        //   <button class="remove">删除</button>
+        // </div>`
+        e.addEventListener('mouseenter', function () {
+          // $(this).prepend(div)
+        })
+      })
+
+      imgs.forEach((e) => {
+        e.addEventListener('mouseleave', function () {
+          // $(this).children()[0].remove()
+        })
+      })
+    </script>
+  </body>
+</html>
